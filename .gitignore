@@ -28,4 +28,5 @@ coverage
 *.sw?
 
 # api
-/src/env.js
+.env
+.vercel

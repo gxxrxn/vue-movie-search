@@ -1,19 +1,15 @@
-import { API_END_POINT, API_KEY } from "@/env.js";
-
 const request = async (options) => {
   try {
     if (!options) {
       return;
     }
 
-    const query = Object.keys(options)
-      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(options[k]))
-      .join("&");
+    const { title } = options;
 
     // 로딩 화면을 보여주기 위해 3초 지연
     const res = await new Promise((resolve) => {
       setTimeout(() => {
-        resolve(fetch(`${API_END_POINT}?apikey=${API_KEY}&${query}`));
+        resolve(fetch(`/api/omdb/${title}`));
       }, 3000);
     });
 
@@ -33,7 +29,7 @@ export const API = {
       return;
     }
 
-    const data = await request({ s: title });
+    const { data } = await request({ title });
 
     if (data.Response === "False") {
       return null;
