@@ -1,0 +1,18 @@
+@import './reset';
+@import './base';
+
+#app {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
